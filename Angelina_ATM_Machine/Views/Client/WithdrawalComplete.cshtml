@@ -1,0 +1,26 @@
+﻿@model ClientViewModel
+using Angelina_ATM_Machine.DataAccess.Models;
+
+<div class="header">
+    <div>
+        <p class="company-name">
+            Bank of America
+        </p>
+    </div>
+    <div>
+        <img class="company-logo"
+             src="~/images/BoFA logo no background.png"
+             alt="logo of BOFA">
+    </div>
+</div>
+
+<div class="available-transactions">
+    <p class="red-header-prompt">
+        Transaction Complete
+    </p>
+</div>
+
+<div>
+    <p>Transaction Complete! You have successfully Withdrawn $<span>@Model.AmountToChange</span>!</p>
+    <p>Your New Balance is now $<span>@Model.Balance</span></p>
+</div>

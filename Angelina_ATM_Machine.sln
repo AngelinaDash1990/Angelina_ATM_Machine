@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35514.174
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angelina_ATM_Machine.DataAccess.EF", "Angelina_ATM_Machine.DataAccess\Angelina_ATM_Machine.DataAccess.EF.csproj", "{1F90491F-D69C-48B5-A72D-FBB1B8C0C1E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angelina_ATM_Machine", "Angelina_ATM_Machine\Angelina_ATM_Machine.csproj", "{7861A505-80D0-4097-A5F0-F76F0C5566D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F90491F-D69C-48B5-A72D-FBB1B8C0C1E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F90491F-D69C-48B5-A72D-FBB1B8C0C1E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F90491F-D69C-48B5-A72D-FBB1B8C0C1E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F90491F-D69C-48B5-A72D-FBB1B8C0C1E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7861A505-80D0-4097-A5F0-F76F0C5566D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7861A505-80D0-4097-A5F0-F76F0C5566D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7861A505-80D0-4097-A5F0-F76F0C5566D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7861A505-80D0-4097-A5F0-F76F0C5566D6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,43 @@
+@model ClientViewModel
+@using Angelina_ATM_Machine.DataAccess.Models;
+
+<div class="header">
+	<div>
+		<p class="company-name">Bank of Angelina Dash</p>
+	</div>
+	<div>
+		<img class="company-logo"
+			 src="~/images/BoFA logo no background.png"
+			 alt="logo of BOFA">
+	</div>
+</div>
+
+<div class="Balance Inquiry">
+	<p class="red-header-prompt">
+		Available Transactions
+	</p>
+</div>
+
+<div class="receipt-message">
+
+	<div class="dateTime">
+		<p id="currentdateandtime"></p>
+
+		<script>
+			// Get current date and time
+			var now = new Date();
+			var datetime = now.toLocaleString();
+
+			// Insert date and time into HTML
+			document.getElementById("currentdateandtime").innerHTML = datetime;
+		</script>
+	</div>
+
+	<div class="transaction">
+		<p class="account-number">Account No.: XXXXXXX890</p>
+		<p class="transaction-message">Withdrawal: $@Model.Balance</p>
+		<p>From PRIMARY CHECKING</p>
+		<p>Available Balance: $</p>
+	</div>
+
+</div>
