@@ -225,6 +225,8 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    vertical-align: middle;
+    align-items: center;
     border: solid;
     border-width: 5px;
     border-color: pink;
@@ -268,8 +270,13 @@ body {
 
 .enter-amount {
     display: flex;
-    flex-direction: COLUMN;
+    flex-direction: column;
     justify-content: center;
+    position: relative;
+    height: 250px;
+    iwdth
+    margin-top: auto;
+    margin-bottom: auto;
     row-gap: 15px;
     border: solid;
     border-width: 5px;
@@ -280,6 +287,8 @@ body {
 .input-amount {
     border: solid;
     border-width: 5px;
+    position: absolute;
+    top: 0;
     border-color: black;
 }
 
@@ -291,31 +300,26 @@ body {
     font-size: 17px;
 }
 
-.number-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    border: solid;
-    border-width: 5px;
-    border-color: black;
-    column-gap: 9px;
-    row-gap: 9px;
-    max-width: 275px;
+.numpad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    width: auto;
+    
 }
 
-.numpad {
-    display: flex;
+.number-buttons {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     flex: .01 .01 85px;
     background-color: black;
+    padding: 10px;
     color: white;
-    height: 31px;
-    font-size: 19px;
-    font-weight: 900;
-    text-align: left;
-    padding-left: 11px;
+    
 }
+
+    .number-buttons:nth-child(10) {
+        grid-column: 1 / span 2;
+    }
 
 
 
@@ -324,6 +328,8 @@ body {
     border: solid;
     border-width: 5px;
     border-color: black;
+    position: absolute;
+    bottom: 0;
     justify-content: space-between;
     margin-top: 22px;
 }

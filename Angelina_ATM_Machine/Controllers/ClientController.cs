@@ -1,6 +1,4 @@
-﻿
-
-using Angelina_ATM_Machine.DataAccess.Models;
+﻿using Angelina_ATM_Machine.DataAccess.Models;
 using Angelina_ATM_Machine.DataAccess.Repositories;
 using Angelina_ATM_Machine.Models;
 using CRUDApps.DataAccess.EF.Context;
@@ -65,10 +63,19 @@ namespace Angelina_ATM_Machine.Controllers
             return View("DepositComplete", model);
         }
 
-        public IActionResult CheckBalance()
+        public IActionResult CheckBalance(ClientViewModel balanceModel)
         {
-            return View();
+            balanceModel.ClientId = 1;
+
+            var clientExists = _repo.GetClientById(balanceModel.ClientId);
+            if (clientExists is not null)
+            {
+                balanceModel.Balance = clientExists.Balance;
+            }
+
+            return View("CheckBalance", balanceModel);
         }
+
         public IActionResult Main()
         {
             return View();
