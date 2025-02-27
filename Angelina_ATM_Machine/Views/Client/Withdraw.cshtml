@@ -1,0 +1,59 @@
+@model ClientViewModel;
+
+
+<div class="header">
+  <div class="company-name">Bank Of Angelina Dash</div>
+  <div>
+    <img class="company-logo"
+         src="~/images/BoFA logo no background.png"
+         alt="logo of BOFA" />
+  </div>
+</div>
+
+<p class="withdrawal-prompt">Withdrawal</p>
+
+<div class="withdraw-area">
+  <div class="withdraw-message">
+    <p class="p1">
+      Enter your withdrawal amout, in multiples of $10 and select <b>Enter.</b>
+    </p>
+
+    <p class="p2">
+      To make corrections, select <b>Clear.</b>
+    </p>
+    <div class="cancel">
+      <a class="cancel-button-withdrawal"
+         href="~/Client/Main">
+        Cancel
+      </a>
+    </div>
+  </div>
+
+  <form action="/Client/WithdrawAmount"
+        method="post">
+    <div class="enter-amount">
+      <div class="input-amount">
+        <input class="input-box"
+               type="number"
+               id="AmountToChange"
+               onfocus="this.value=''"
+               name="AmountToChange"
+               step="0.01"
+               placeholder="Enter Amount" />
+      </div>
+
+      <div class="clear-and-enter-buttons">
+        <button class="blue-button"
+                onclick="document.getElementById('AmountToChange').value='' "
+                name="AmountToChange"
+                type="reset">
+          Clear
+        </button>
+        <button class="blue-button"
+                type="submit">
+          Enter
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
