@@ -50,18 +50,26 @@ namespace Angelina_ATM_Machine.Controllers
                 var currentBalance = clientExists.Balance;
                 var withdrawAmount = model.AmountToChange;
                 var newBalance = currentBalance - withdrawAmount;
-                model.Balance -= withdrawAmount;
-                var clientToUpdate = new ClientModel
+                if (newBalance >= 0)
                 {
-                    ClientId = model.ClientId,
-                    Balance = newBalance
-                };
-                model.Balance = clientToUpdate.Balance;
-                _repo.Update(clientToUpdate);
-            }
+                  model.Balance -= withdrawAmount;
+                  var clientToUpdate = new ClientModel
+                  {
+                      ClientId = model.ClientId,
+                      Balance = newBalance
+                  };
+                  model.Balance = clientToUpdate.Balance;
+                  _repo.Update(clientToUpdate);
 
-            return View("DepositComplete", model);
-        }
+                  return View("WithdrawalComplete", model);
+                }
+                else
+                {
+                  return View("InsufficientFunds", model);          
+                }
+            }
+            return View("WithdrawalComplete", model);
+    }
 
         public IActionResult CheckBalance(ClientViewModel balanceModel)
         {
@@ -71,6 +79,7 @@ namespace Angelina_ATM_Machine.Controllers
             if (clientExists is not null)
             {
                 balanceModel.Balance = clientExists.Balance;
+                balanceModel.AccountNumber = clientExists.AccountNumber;
             }
 
             return View("CheckBalance", balanceModel);
@@ -80,12 +89,26 @@ namespace Angelina_ATM_Machine.Controllers
         {
             return View();
         }
+
         public IActionResult Withdraw()
         {
             return View();
         }
 
-        public IActionResult TransationComplete()
+        public IActionResult InsufficientFunds(ClientViewModel balanceModel)
+        {
+          balanceModel.ClientId = 1;
+
+          var clientExists = _repo.GetClientById(balanceModel.ClientId);
+          if (clientExists is not null)
+          {
+            balanceModel.Balance = clientExists.Balance;
+            balanceModel.AccountNumber = clientExists.AccountNumber;
+          }
+          return View("InsufficientFunds",balanceModel);
+        }
+
+    public IActionResult TransationComplete()
         {
             ClientViewModel model = new ClientViewModel();
             return View(model);
